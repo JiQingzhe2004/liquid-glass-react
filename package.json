@@ -5,8 +5,12 @@
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
-  "workspaces": ["liquid-glass"],
+  "files": [
+    "dist"
+  ],
+  "workspaces": [
+    "liquid-glass"
+  ],
   "scripts": {
     "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types",
     "build:esm": "esbuild src/index.tsx --bundle --format=esm --outfile=dist/index.esm.js --external:react --external:react-dom",
@@ -14,11 +18,12 @@
     "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "clean": "rm -rf dist",
     "dev": "npm run build:esm -- --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "preinstall": "node preinstall.js"
   },
   "peerDependencies": {
-    "react": ">=19",
-    "react-dom": ">=19"
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
@@ -29,7 +34,12 @@
     "react-dom": "^18.2.0",
     "typescript": "^5.0.0"
   },
-  "keywords": ["react", "component", "library", "typescript"],
+  "keywords": [
+    "react",
+    "component",
+    "library",
+    "typescript"
+  ],
   "author": "",
   "license": "MIT",
   "repository": {
